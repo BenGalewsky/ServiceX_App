@@ -159,6 +159,7 @@ class TransformRequest(db.Model):
     generated_code_cm = db.Column(db.String(128), nullable=True)
     status = db.Column(db.String(128), nullable=True)
     failure_description = db.Column(db.String(max_string_size), nullable=True)
+    archived = db.Column(db.Boolean, default=False)
     app_version = db.Column(db.String(64), nullable=True)
     code_gen_image = db.Column(db.String(256), nullable=True)
 

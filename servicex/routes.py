@@ -41,13 +41,14 @@ def add_routes(api, transformer_manager, rabbit_mq_adaptor,
     from servicex.resources.internal.transform_status import TransformationStatusInternal
     from servicex.resources.internal.transformer_file_complete import TransformerFileComplete
 
-    from servicex.resources.transformation.submit import SubmitTransformationRequest
-    from servicex.resources.transformation.status import TransformationStatus
+    from servicex.resources.transformation.archive import ArchiveTransform
     from servicex.resources.transformation.cancel import CancelTransform
+    from servicex.resources.transformation.deployment import DeploymentStatus
+    from servicex.resources.transformation.errors import TransformErrors
     from servicex.resources.transformation.get_all import AllTransformationRequests
     from servicex.resources.transformation.get_one import TransformationRequest
-    from servicex.resources.transformation.errors import TransformErrors
-    from servicex.resources.transformation.deployment import DeploymentStatus
+    from servicex.resources.transformation.status import TransformationStatus
+    from servicex.resources.transformation.submit import SubmitTransformationRequest
 
     from servicex.resources.users.all_users import AllUsers
     from servicex.resources.users.token_refresh import TokenRefresh
@@ -125,6 +126,7 @@ def add_routes(api, transformer_manager, rabbit_mq_adaptor,
     api.add_resource(TransformErrors, prefix + "/errors")
     api.add_resource(DeploymentStatus, prefix + "/deployment-status")
     api.add_resource(CancelTransform, prefix + "/cancel")
+    api.add_resource(ArchiveTransform, prefix + "/archive")
 
     # Internal service endpoints
     api.add_resource(TransformationStatusInternal,
